@@ -18,11 +18,6 @@
 *It is truly a power DB!!*
 
 ## Project
-![insert](images/ss1.png)
-![insertdb](images/ss2.png)
-![deletedb](images/ss3.png)
-![show](images/ss4.png)
-![update](images/ss5.png)
-![updatedb](images/ss6.png)
+![insert](images/ss1.jpeg)
 
 
