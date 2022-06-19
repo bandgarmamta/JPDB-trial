@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JPDB Trial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            -webkit-animation: fadeEffect 1s;
+            animation: fadeEffect 1s;
+        }
+
+        /* Fade in tabs */
+        @-webkit-keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>CRUD Operations</h3>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Insert')" id="defaultOpen">Insert</button>
+        <button class="tablinks" onclick="openCity(event, 'Delete')">Delete</button>
+        <button class="tablinks" onclick="openCity(event, 'Show')">Show</button>
+        <button class="tablinks" onclick="openCity(event, 'Update')">Update</button>
+    </div>
+
+    <div id="Insert" class="tabcontent">
+        <form id="empForm" method="post">
+            <div class="form-group">
+                <span><label for="empId">Employee ID:</label> <label id="empIdMsg">
+                    </label></span>
+                <input type="text" class="form-control" name="empId" id="empId" placeholder="Enter Employee ID"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="empName">Employee Name:</label>
+                <input type="text" class="form-control" id="empName" placeholder="Enter Employee Name" name="empName">
+            </div>
+            <div class="form-group">
+                <label for="empEmail">Email:</label>
+                <input type="email" class="form-control" id="empEmail" placeholder="Enter Employee Email"
+                    name="empEmail">
+            </div>
+            <input type="button" class="btn btn-primary" value="Save" onclick="saveEmployee();">
+        </form>
+        
+    </div>
+
+    <div id="Delete" class="tabcontent">
+        <form id="empForm" method="post">
+            <div class="form-group">
+                <span><label for="rec">Record No.:</label></span>
+                <input type="text" class="form-control" name="rec" id="rec" placeholder="Enter Record No."
+                    required>
+            </div>
+            <input type="button" class="btn btn-primary"  value="Remove" onclick="delEmployee();">
+        </form>
+    </div>
+
+    <div id="Show" class="tabcontent">
+        <form id="empForm" method="post">
+            <div class="form-group">
+                <label for="empNameget">Employee Name:</label>
+                <input type="text" class="form-control" id="empNameget" placeholder="Enter Employee Name" name="empNameget">
+            </div>
+            <input type="button" class="btn btn-primary"  value="Show" onclick="getEmployee();">
+        </form>
+        <!-- <script src="readscript.js"></script> -->
+    </div>
+
+    <div id="Update" class="tabcontent">
+        <form id="empForm" method="post">
+            <div class="form-group">
+                <span><label for="recup">Record No.:</label></span>
+                <input type="text" class="form-control" name="recup" id="recup" placeholder="Enter Record No." required>
+            </div>
+            <div class="form-group">
+                <span><label for="empIdup">Employee ID:</label> <label id="empIdMsgup">
+                    </label></span>
+                <input type="text" class="form-control" name="empIdup" id="empIdup" placeholder="Enter Employee ID"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="empNameup">Employee Name:</label>
+                <input type="text" class="form-control" id="empNameup" placeholder="Enter Employee Name" name="empNameup">
+            </div>
+            <div class="form-group">
+                <label for="empEmailup">Email:</label>
+                <input type="email" class="form-control" id="empEmailup" placeholder="Enter Employee Email"
+                    name="empEmailup">
+            </div>
+            <input type="button" class="btn btn-primary"  value="Update" onclick="UpEmployee();">
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+
+</html>
